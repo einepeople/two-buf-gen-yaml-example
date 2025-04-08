@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package common.types.v2;
+
+import "buf/validate/validate.proto";
+
+message UUIDv7 {
+  string value = 1 [(buf.validate.field).cel = {
+    id: "uuid_v7"
+    expression: "this.matches('^[0-9a-f]{8}-[0-9a-f]{4}-7[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$')"
+    message: "id must be a valid UUID v7"
+  }];
+}
+
+message UUIDv5 {
+  string value = 1 [(buf.validate.field).cel = {
+    id: "uuid_v5"
+    expression: "this.matches('^[0-9a-f]{8}-[0-9a-f]{4}-5[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$')"
+    message: "id must be a valid UUID v5"
+  }];
+}

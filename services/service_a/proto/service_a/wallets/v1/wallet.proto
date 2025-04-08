@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package service_a.wallets.v1;
+
+import 'common/types/v1/context.proto';
+import 'common/types/v1/uuid.proto';
+
+service WalletService {
+  rpc DoThing(common.types.v1.EndUserContext) returns (common.types.v1.UUIDv7);
+}

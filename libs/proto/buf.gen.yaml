@@ -1,0 +1,15 @@
+version: v2
+managed:
+  enabled: true
+  override:
+    - file_option: go_package_prefix
+      value: github.com/einepeople/two-buf-gen-yaml-example/libs/proto/gen
+  disable:
+    - file_option: go_package_prefix
+      module: buf.build/bufbuild/protovalidate
+plugins:
+  - protoc_builtin: go
+    out: gen
+    opt: paths=source_relative
+inputs:
+  - directory: libs/proto

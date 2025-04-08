@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package common.types.v1;
+
+import "common/types/v1/uuid.proto";
+
+message EndUserContext {
+  string ip = 1;
+  string language = 2;
+  optional UUIDv7 device_id = 3;
+}

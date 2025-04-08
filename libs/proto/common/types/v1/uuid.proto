@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package common.types.v1;
+
+message UUIDv7 {
+  uint64 high = 1;
+  uint64 low = 2;
+}
+
+message UUIDv5 {
+  string value = 1;
+}

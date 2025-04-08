@@ -1,0 +1,22 @@
+version: v2
+managed:
+  enabled: true
+  override:
+    - file_option: go_package_prefix
+      value: github.com/einepeople/two-buf-gen-yaml-example/services/service_a/gen
+  disable:
+    - file_option: go_package_prefix
+      module: buf.build/bufbuild/protovalidate
+    - file_option: go_package_prefix
+      path: common
+plugins:
+  - protoc_builtin: go
+    out: gen
+    opt: paths=source_relative
+  - protoc_builtin: go-grpc
+    out: gen
+    opt:
+      - paths=source_relative
+      - require_unimplemented_servers=false
+inputs:
+  - directory: services/service_a/proto
